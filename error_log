@@ -1,0 +1,2 @@
+[31-Oct-2021 14:26:11 UTC] PHP Fatal error:  Cannot redeclare Blog_view::blog_list() in /home/smmarine/global.smmarineservice.com/application/controllers/Blog_view.php on line 23
+[22-Nov-2021 18:23:02 UTC] PHP Fatal error:  Cannot redeclare Blog_view_model::all_blog_sub_info() in /home/smmarine/public_html/application/models/Blog_view_model.php on line 63

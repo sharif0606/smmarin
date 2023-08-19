@@ -1,0 +1,72 @@
+<section class="body">
+		
+			<div style='background: #000 url("<?= base_url();?>assets/frontend/images/back.png") no-repeat fixed top;' class="catBack row">
+				<div class="overlayBack row">
+					<div class="container">
+						<h2>Products Details</h2>
+					</div>
+				</div>
+			</div>
+			
+			<div class="pageConOverlay">
+				<div class="container">
+					<div class="row">
+						<div class="top_padding no_padding col-md-12 col-sm-12 col-xs-12">
+				<br>
+				<div class="proDetail no_padding col-md-9 col-sm-8 col-xs-12">
+				
+					<?php
+                        foreach($full_news_view as $v_news){
+					?>
+					
+					
+				
+					<div class="no_padding col-md-12 col-sm-12 col-xs-12">
+						<h3>Product Name: <?php echo $v_news->news_name;?></h3>				
+					</div>
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						
+						<p><img src="<?php echo base_url().$v_news->news_image;?>" alt="image" /></p>
+						<p><br> Description: <?php echo $v_news->news_description;?></p>
+						<br>
+					</div>
+					
+						<?php }?>
+					
+					
+				</div>
+				
+				<div class="relatePro col-md-3 col-sm-4 col-xs-12">
+					<h3 style="padding-bottom:20px;margin-bottom:5px; border-bottom:1px solid lightgray;">Related Products</h3>
+					
+					<?php
+                        foreach($related_news_view as $related_news_view){
+					
+						?>
+					<a href="<?php echo base_url()."product-view/".$related_news_view->category_name."/".$related_news_view->news_name."/".$related_news_view->news_id."/".$related_news_view->fk_news_id;?>">
+					<div style="margin-bottom:15px;" class="col-md-12 col-sm-12 col-xs-12">
+						<div style="overflow:hidden;border-radius:10px;" class="no-padding col-md-12 col-sm-12 col-xs-12">
+							<div data-img-url="<?php echo base_url().$related_news_view->news_image;?>" data-pro-name="<?php echo $related_news_view->news_name;?>" class="service_items no-padding col-md-12 col-sm-12 col-xs-12" style="background-image: url('<?php echo base_url().$related_news_view->news_image;?>');">
+								<div class="black_overlay over_padding">
+									<h3><?php echo $related_news_view->news_name;?></h3>
+								</div>
+							</div>
+						</div>
+					</div>
+					</a>
+					
+					<?php }?>
+				</div>
+				
+				
+			</div>
+						
+					</div>
+						<br>
+						<br>
+						<br>
+				</div>
+			</div>
+		
+	</section>
+	
