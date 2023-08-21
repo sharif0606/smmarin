@@ -8,7 +8,7 @@
     <meta name="author" content="Muktodhara Tech. Ltd.">
      
     
-    <link rel="icon" href="<?php echo base_url();?>assets/frontend/images/4.jpg">
+    <link rel="icon" href="<?php echo base_url().$all_meta_data->fav_icon;?>">
     <title><?= $all_meta_data->site_title;?></title>
     
     <link rel="stylesheet" href="<?php echo base_url();?>assets/frontsite/css/bootstrap.min.css" />

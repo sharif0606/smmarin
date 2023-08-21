@@ -28,7 +28,7 @@
                                     <input placeholder="Site Title" type="text" id="last-name" name="site_title" value="<?= $all_meta_data->site_title;?>" required="required" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
-							 <div class="form-group">
+							<div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="price"> Site Logo <span class="">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
@@ -38,13 +38,23 @@
 									<br>
                                 </div>
                             </div>
-							 <div class="form-group">
+							<div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="logo"> Site Second Logo <span class="">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input style="padding:0;margin-bottom:10px;" type="file" id="pro-price" name="site_second_logo" class="form-control col-md-7 col-xs-12" />
+                                    <input style="padding:0;margin-bottom:10px;" type="file" name="site_second_logo" class="form-control col-md-7 col-xs-12" />
 									<br>
                                     <img src="<?= base_url().$all_meta_data->site_second_logo;?>" width="auto" height="50" alt="image">
+									<br>
+                                </div>
+                            </div>
+							<div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="logo">Icon <span class="">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input style="padding:0;margin-bottom:10px;" type="file" name="fav_icon" class="form-control col-md-7 col-xs-12" />
+									<br>
+                                    <img src="<?= base_url().$all_meta_data->fav_icon;?>" width="auto" height="50" alt="image">
 									<br>
                                 </div>
                             </div>

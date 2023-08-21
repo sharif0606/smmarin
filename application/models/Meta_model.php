@@ -29,6 +29,13 @@ class Meta_model extends CI_Model {
             $sdata=$this->upload->data();
             $data['site_second_logo']=$config['upload_path'].$sdata['file_name'];
         }
+        if(!$this->upload->do_upload('fav_icon')){
+            $error=$this->upload->display_errors();
+            echo $error;
+        }else{
+            $sdata=$this->upload->data();
+            $data['fav_icon']=$config['upload_path'].$sdata['file_name'];
+        }
 		
 		if(!$this->upload->do_upload('value_mage')){
             $error=$this->upload->display_errors();
