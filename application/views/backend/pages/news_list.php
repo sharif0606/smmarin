@@ -43,7 +43,7 @@
                           <tr class="headings">
                             <th class="column-title">ID </th>
                             <th class="column-title"> Name </th>
-                            <!-- <th class="column-title"> Image </th> -->
+                            <th class="column-title"> Image </th>
                             <th class="column-title"> Category </th>
                             <th class="column-title"> Sub Category </th>
                             <th class="column-title"> Price </th>
@@ -62,7 +62,7 @@
                         <tr>
                             <td><?php echo $data->news_id; ?></td>
                             <td><?php echo $data->news_name; ?></td>
-                            <!-- <td><img src="<?php echo base_url().$data->news_image;?>" width="70" height="40"></td> -->
+                            <td><img src="<?php echo base_url().$data->news_image;?>" width="70" height="40"></td>
                             <td><?php echo $data->category_name;?></td>
                             <td><?php echo $data->sub_name;?></td>
                             <td><?php echo $data->price;?></td>

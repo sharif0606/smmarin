@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="<?php echo base_url();?>assets/frontsite/css/owl.theme.css" />
     <link rel="stylesheet" href="<?php echo base_url();?>assets/frontsite/css/owl.transitions.css" />
     <link rel="stylesheet" href="<?php echo base_url();?>assets/frontsite/css/style.css?id=<?= time() ?>" />
-    
     <script src="<?php echo base_url();?>assets/frontsite/js/jquery-3.2.1.min.js"></script>
     <script src="<?php echo base_url();?>assets/frontsite/js/owl.carousel.min.js"></script>
     <script src="<?php echo base_url();?>assets/frontsite/js/main.js"></script>

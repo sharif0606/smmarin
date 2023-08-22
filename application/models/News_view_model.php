@@ -12,13 +12,26 @@ class News_view_model extends CI_Model {
          
         $this->db->select('*');
         $this->db->from('tbl_news');
-		
+		$this->db->join('tbl_product_image','tbl_product_image.tbl_news_id=tbl_news.news_id');
         $this->db->where('news_id',$news_id);
 		$this->db->where('news_status',1);
         $query_result = $this->db->get();
         $full_news_view = $query_result->result();
         return $full_news_view;
     }
+    // public function full_news_view($news_id) {
+    //     $this->db->select('tbl_news.*, tbl_product_image.product_images'); // Select columns from both tables
+    //     $this->db->from('tbl_news');
+    //     $this->db->where('tbl_news.news_id', $news_id);
+    //     $this->db->where('tbl_news.news_status', 1);
+        
+    //     // LEFT JOIN to get associated product images
+    //     $this->db->join('tbl_product_image', 'tbl_product_image.tbl_news_id = tbl_news.news_id', 'left');
+    
+    //     $query_result = $this->db->get();
+    //     $full_news_view = $query_result->result();
+    //     return $full_news_view;
+    // }
     
      public function latest_news_view($news_id,$cat_id) {
         $this->db->select('*');
@@ -37,6 +50,7 @@ class News_view_model extends CI_Model {
         $this->db->select('*');
         $this->db->from('tbl_news');
         $this->db->join('tbl_category','tbl_category.category_id=tbl_news.fk_news_id','left');
+        $this->db->join('tbl_product_image', 'tbl_product_image.tbl_news_id = tbl_news.news_id', 'left');
 		$this->db->where('news_status',1);
 		$this->db->where('news_id !=',$news_id);
 		$this->db->where('fk_news_id',$cat_id);

@@ -27,7 +27,7 @@
                                         <!--  product left body: description -->
                                         <div class="product-line-grid-body col-md-5 col-7">
                                             <div class="product-line-info cartname">
-                                                <a class="label"><?= base64_decode($item["name"]) ?></a>
+                                                <a class="label"><?= $item["name"] ?></a>
                                             </div>
 
                                             <div class="product-line-info product-price mar_b6">

@@ -85,13 +85,19 @@
                                 </div>
                             </div>
 
-
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="price"> Photo <span class="">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="pro-name">Photo <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input style="padding:0;" type="file" id="last-name" name="single_image" class="form-control col-md-7 col-xs-12">
+                                    <img src="<?php echo base_url().$select_news_by_id->news_image;?>" width="70" height="40">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="price"> Multiple Image <span class="">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input style="padding:0;margin-bottom:10px;" type="file" name="news_images[]" multiple class="form-control col-md-7 col-xs-12" />
-                                    <img src="<?php echo base_url().$select_news_by_id->news_image;?>" width="70" height="40">
                                 </div>
                             </div>
                             

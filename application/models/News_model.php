@@ -25,20 +25,28 @@ class News_model extends CI_Model {
         $data['post_time']= date("H:i");
         $data['post_date']=date("F j, Y");
 		$data['post_date_small']=date("F j");
-		
         
-        $this->db->insert('tbl_news', $data);
-        $news_id = $this->db->insert_id();
-        
+        $sdata=array(); 
+        $error="";
         $config['upload_path']='uploads/PostImages/';
         $config['allowed_types']='gif|jpg|jpeg|png';
         $config['max_size']=200000;
         $config['max_width']=200000;
         $config['max_height']=200000;
-
         $this->load->library('upload', $config);
-        $uploaded_files = array(); // Array to store uploaded file information
 
+        if(!$this->upload->do_upload('single_image')){
+            $error=$this->upload->display_errors();
+            echo $error;
+        }else{
+            $sdata=$this->upload->data();
+            $data['news_image']=$config['upload_path'].$sdata['file_name'];
+        }
+
+        $this->db->insert('tbl_news', $data);
+        $news_id = $this->db->insert_id();
+
+        $uploaded_files = array(); // Array to store uploaded file information
         foreach ($_FILES['news_images']['name'] as $key => $image_name) {
             $_FILES['userfile']['name'] = $_FILES['news_images']['name'][$key];
             $_FILES['userfile']['type'] = $_FILES['news_images']['type'][$key];
@@ -181,22 +189,29 @@ class News_model extends CI_Model {
         $data['post_date'] = date("F j, Y");
         $data['post_date_small'] = date("F j");
     
-        $this->db->where('news_id', $news_id);
-        $this->db->update('tbl_news', $data);
+        
     
-        // Delete existing images associated with the news
-        $this->db->where('tbl_news_id', $news_id);
-        $this->db->delete('tbl_product_image');
-    
+        $sdata=array(); 
+        $error="";
         $config['upload_path']='uploads/PostImages/';
         $config['allowed_types']='gif|jpg|jpeg|png';
         $config['max_size']=200000;
         $config['max_width']=200000;
         $config['max_height']=200000;
-    
         $this->load->library('upload', $config);
+
+        if(!$this->upload->do_upload('single_image')){
+            $error=$this->upload->display_errors();
+            echo $error;
+        }else{
+            $sdata=$this->upload->data();
+            $data['news_image']=$config['upload_path'].$sdata['file_name'];
+        }
+
+        $this->db->where('news_id', $news_id);
+        $this->db->update('tbl_news', $data);
+
         $uploaded_files = array(); // Array to store uploaded file information
-    
         foreach ($_FILES['news_images']['name'] as $key => $image_name) {
             $_FILES['userfile']['name'] = $_FILES['news_images']['name'][$key];
             $_FILES['userfile']['type'] = $_FILES['news_images']['type'][$key];
@@ -213,6 +228,10 @@ class News_model extends CI_Model {
                     'tbl_news_id' => $news_id,
                     'product_images' => $config['upload_path'] . $file_data['file_name']
                 );
+                // Delete existing images associated with the news
+                // $this->db->where('tbl_news_id', $news_id);
+                // $this->db->delete('tbl_product_image');
+
                 $this->db->insert('tbl_product_image', $image_data);
             }
         }
