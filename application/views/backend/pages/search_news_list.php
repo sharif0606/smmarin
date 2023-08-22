@@ -94,9 +94,6 @@
             <?php } ?>
                 
                 
-                
-                
-                
                         </tbody>
                       </table>
                     </div>
