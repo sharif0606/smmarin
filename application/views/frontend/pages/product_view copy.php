@@ -113,28 +113,44 @@
                 <section class="products_section">
                     <div class="products_slider display_as_grid">
                         <div class="st_posts product_list row grid">
-                        
-                            
+                            <?php foreach($all_blog_data as $abd){?>
+                            <div class="product_list_item col-fw-3 col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6 first-item-of-screen-line first-screen-line first-item-of-large-line first-large-line first-item-of-desktop-line first-desktop-line first-in-line first-line first-item-of-tablet-line first-tablet-line first-item-of-mobile-line first-mobile-line first-item-of-portrait-line first-portrait-line">
+                                <div class="pro_outer_box clearfix home_default">
+                                    <div class="pro_first_box moblie_flyout_buttons_show">
+                                        <a href="<?= base_url()."product-view/".$abd->category_name."/".$abd->news_name."/".$abd->news_id."/".$abd->fk_news_id;?>" class="product_img_link">
+                                            <img src="<?= base_url().$abd->news_image;?>" width="100%" style="height:203px !important" class="front-image" />
+                                        </a>
+                                    </div>
+                                    <div class="pro_second_box pro_block_align_0">
+                                        <div class="mini_name">
+                                            <h3 class="s_title_block two_rows">
+                                                <a href="<?= base_url()."product-view/".$abd->category_name."/".$abd->news_name."/".$abd->news_id."/".$abd->fk_news_id;?>" class="product_img_link"><?= $abd->news_name;?></a>
+                                            </h3>
+                                        </div>
 
-                <div class="row">
-                    <?php foreach($categories as $hppr){?>
-                        
-                        <div class="col-md-4">
-                            <a href="<?php echo base_url();?>all-products/<?= $hppr->category_name ?>/<?= $hppr->category_id ?>">
-                                <div class="item">
-                                    <div class="cont-box">
-                                        <img src="<?php echo base_url().$hppr->category_image;?>" style="width:100%; height:250px !important" />
-                                        <h2 class="caption"><?php echo $hppr->category_name;?></h2>
+                                        <div class="pro_list_reference pad_b6"><?= $abd->item_code;?></div>
+
+                                        <div class="">
+                                            <div class="product-price-and-shipping pad_b6">
+                                                <span itemprop="price" content="4000" class="price"><?= $abd->price;?></span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </a>
-                        </div>
-    				<?php }?>
-            
-                </div>
+                            </div>
+                            <?php }?>
                         </div>
                     </div>
                 </section>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-6"><?php if (isset($links)) { ?><?= $result_count ?><?php } ?></div>
+                    <div class="col-sm-6 text-right">
+                        <?php if (isset($links)) { ?>
+                            <?php echo $links ?>
+                        <?php } ?>
+                    </div>
+                </div>
                 
             </div>
         </div>

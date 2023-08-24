@@ -15,6 +15,9 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="product-detail-top">
+                    <?php 
+                    print_r($full_news_view);
+                    ?>
                     <div class="row pt-3">
                         <div class="col-md-5">
                             <div class="product-slider-single normal-slider">

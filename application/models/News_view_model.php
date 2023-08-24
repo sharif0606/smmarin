@@ -12,7 +12,7 @@ class News_view_model extends CI_Model {
          
         $this->db->select('*');
         $this->db->from('tbl_news');
-		$this->db->join('tbl_product_image','tbl_product_image.tbl_news_id=tbl_news.news_id');
+		$this->db->join('tbl_product_image','tbl_product_image.tbl_news_id=tbl_news.news_id','left');
         $this->db->where('news_id',$news_id);
 		$this->db->where('news_status',1);
         $query_result = $this->db->get();
