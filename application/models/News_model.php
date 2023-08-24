@@ -100,17 +100,42 @@ class News_model extends CI_Model {
         $this->db->where('news_id', $news_id);
         $this->db->delete('tbl_news');
     }
+    public function delete_image_from_table($imageId) {
+         // $imageUrl = $this->input->post("imageUrl");
+        $this->db->where('id', $imageId);
+        $this->db->delete('tbl_product_image');
+
+        // Check if the deletion was successful
+        if ($this->db->affected_rows() > 0) {
+            return true; // Deletion successful
+        } else {
+            return false; // Deletion failed
+        }
+    }
 
    public function select_news_by_id($news_id) {
         $this->db->select('*');
         $this->db->from('tbl_news');
 		$this->db->join('tbl_category','tbl_category.category_id=tbl_news.fk_news_id','full');
+        $this->db->join('tbl_product_image','tbl_product_image.tbl_news_id=tbl_news.news_id', 'left');
         		
         $this->db->where('news_id', $news_id);
         $query_row = $this->db->get();
         $select_news_by_id = $query_row->row();
        
         return $select_news_by_id;
+    }
+   public function product_image_by_id($news_id) {
+        $this->db->select('*');
+        $this->db->from('tbl_news');
+		// $this->db->join('tbl_category','tbl_category.category_id=tbl_news.fk_news_id','full');
+        $this->db->join('tbl_product_image','tbl_product_image.tbl_news_id=tbl_news.news_id');
+        		
+        $this->db->where('news_id', $news_id);
+        $query_row = $this->db->get();
+        $product_image_by_id = $query_row->result();
+       
+        return $product_image_by_id;
     }
 
     // public function update_news_info() {

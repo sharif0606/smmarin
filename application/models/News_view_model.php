@@ -55,7 +55,7 @@ class News_view_model extends CI_Model {
 		$this->db->where('news_id !=',$news_id);
 		$this->db->where('fk_news_id',$cat_id);
         $this->db->order_by('news_id','ASC');
-        $this->db->limit('3');
+        $this->db->limit('4');
         $query_result = $this->db->get();
         $related_news_view = $query_result->result();
         return $related_news_view;

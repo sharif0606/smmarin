@@ -17,6 +17,5 @@ class Search extends CI_Controller{
         $data['main_content']=$this->load->view('frontend/pages/search_list',$data,true);
         $this->load->view('frontend/master',$data);
     } 
-  
 
 }

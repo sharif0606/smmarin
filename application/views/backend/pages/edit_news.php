@@ -7,7 +7,6 @@
                 <div class="x_panel">
                     <div class="x_title">
                         <h2> Edit Product </h2>
-
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
@@ -100,10 +99,18 @@
                                     <input style="padding:0;margin-bottom:10px;" type="file" name="news_images[]" multiple class="form-control col-md-7 col-xs-12" />
                                 </div>
                             </div>
-                            
-                          
-							
-							
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="pro-name">
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <?php foreach($product_image_by_id as $image){ ?>
+                                        <div class="form-group text-center" style="display:inline-block;">
+                                            <img src="<?php echo base_url().$image->product_images?>" width="70" height="40"><br>
+                                            <a class="text-danger delete-image" href="#" data-id= "<?= $image->id ?>">remove</a>
+                                        </div>
+                                    <?php } ?>
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Status<span>*</span></label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
@@ -166,6 +173,7 @@
                                 </div>
                             </div>
                             <div class="ln_solid"></div>
+                            
                             <div class="form-group">
                                 <div class="submit_block">
                                     <a href="<?php echo base_url();?>all_news/news_list" class="btn btn-primary">Back</a>
@@ -182,5 +190,27 @@
         </div>
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    $(".delete-image").on("click", function() {
+        var imageId = $(this).data("id");
+        var imageUrl = $(this).prev("img").attr("src");
+        var imageSection = $(this).closest(".form-group");
 
-<!-- /page content -->
+        $.ajax({
+            url: "<?php echo base_url('news/delete_image'); ?>",
+            method: "POST",
+            data: {
+                imageId: imageId,
+                imageUrl: imageUrl
+            },
+            success: function(response) {
+                if (response === "success") {
+                    imageSection.remove();
+                }
+            }
+        });
+    });
+});
+</script>

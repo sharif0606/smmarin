@@ -9,16 +9,18 @@
             <div class="title_right">
                 <div class="col-md-4 col-sm-4 col-xs-12 form-group pull-right top_search">
                     <div class="input-group">
-                        <form action="<?php echo base_url();?>search/backend_blog_search" method="POST">
+                        <form action="" method="get">
                             <div style="padding: 0;" class="col-md-8">
                                 <input type="text" class="form-control" name="search_keyword" placeholder="Search for...">
                             </div>
                             <div style="padding: 0;" class="col-md-4">
                                 <span class="input-group-btn">
                                     <button  style=" height: 30px; border-left: 1px solid gray;" class="btn btn-default" type="submit">Go!</button>
+                                    <a href="<?php echo base_url();?>all_news/news_list" style=" height: 30px; border-left: 1px solid gray;" class="btn btn-danger" ><i class="fa fa-refresh"></i></a>
                                 </span>
                             </div>
                         </form>
+                        
                     </div>
                 </div>
             </div>

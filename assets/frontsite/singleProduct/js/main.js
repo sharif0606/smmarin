@@ -111,8 +111,8 @@
     
     // Product Detail Slider
     $('.product-slider-single').slick({
-        infinite: true,
-        autoplay: true,
+        infinite: false,
+        autoplay: false,
         dots: false,
         fade: true,
         slidesToShow: 1,

@@ -44,10 +44,26 @@ class News extends CI_Controller{
         $this->session->set_userdata($sdata);
         redirect('all_news/news_list');
     }
+
+    public function delete_image() {
+        $this->load->model('news_model');
+        $imageId = $this->input->post("imageId");
+        $imageUrl = $this->input->post("imageUrl");
+        
+        $deletionResult = $this->news_model->delete_image_from_table($imageId);
+
+        if ($deletionResult) {
+            echo "success"; 
+        } else {
+            echo "error"; 
+        }
+    }
+    
      public function edit_news($news_id)
     {
         $data=array();
         $data['select_news_by_id']=$this->news_model->select_news_by_id($news_id);
+        $data['product_image_by_id']=$this->news_model->product_image_by_id($news_id);
         $data['admin_main_content']=$this->load->view('backend/pages/edit_news',$data,true);
         $this->load->view('backend/admin_master',$data);
     }

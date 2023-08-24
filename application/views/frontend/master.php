@@ -37,7 +37,7 @@
             	<meta name="description" content="<?= $v_news->meta_des;?>">
             	<meta name="keywords" content="<?= $v_news->meta_key;?>">
             	<meta property="og:url" content="<?php echo base_url().'news/'.$v_news->news_id.'/'.$v_news->fk_news_id;?>">
-            	<meta property="og:description" content="<?php echo $v_news->news_description;?>">
+            	<meta property="og:description" content="<?php echo $v_news->meta_des;?>">
             	<meta property="og:title" content="<?php echo $v_news->news_name;?>">
             	<meta property="og:site_name" content="<?= $all_meta_data->site_title;?>">
             	<meta property="fb:app_id" content="1405933432817561" /> 

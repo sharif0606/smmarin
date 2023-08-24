@@ -133,6 +133,12 @@ class Blog_model extends CI_Model {
         $this->db->from('tbl_category');
         $this->db->join('tbl_news', 'tbl_category.category_id=tbl_news.fk_news_id', 'inner');
         $this->db->where_in('tbl_category.category_type',array(1,2));
+        
+        if($this->input->get('search_keyword')){
+            $this->db->like('news_id', $this->input->get('search_keyword'));
+            $this->db->or_like('news_name', $this->input->get('search_keyword'));
+        }
+
         $this->db->order_by('news_id','desc');
         $query = $this->db->get();
         

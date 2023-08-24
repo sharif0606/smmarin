@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="product-detail-top">
-                    <div class="row ">
+                    <div class="row pt-3">
                         <div class="col-md-5">
                             <div class="product-slider-single normal-slider">
                                 <?php foreach($full_news_view as $v_news){ ?>
@@ -24,13 +24,13 @@
                             </div>
                             <div class="product-slider-single-nav normal-slider">
                                 <?php foreach($full_news_view as $v_news){ ?>
-                                    <div class="slider-nav-img"><img src="<?= base_url().$v_news->product_images;?>" alt="Product Image"></div>
+                                    <div class="slider-nav-img"><img src="<?= base_url().$v_news->product_images;?>" width="100px" alt="Product Image" style="height: 100px !important; "></div>
                                 <?php } ?>
                             </div>
                         </div>
                         <div class="col-md-7">
                             <?php  if (!empty($full_news_view)) {?>
-                            <div class="product-content p-0">
+                            <div class="product-content py-0 pl-1">
                                 <div class="title"><h1><?= $full_news_view[0]->news_name;?></h1></div>
                                 <div class="price">
                                     <h4>Item Code:</h4>
@@ -79,11 +79,12 @@
                 </div>
                 
                 <div class="product">
-                    <div class="section-header text-center">
-                        <h1>Related Products</h1>
+                    <div class="section-title mt-5">
+                        <h4>Related products</h4>
+                        <span></span>
                     </div>
 
-                    <div class="row align-items-center product-slider product-slider-3">
+                    <div class="row align-items-center product-slider product-slider-3 mt-4">
                         <?php foreach($related_news_view as $rnv){ ?>
                         <div class="col-lg-3">
                             <div class="product-item">
