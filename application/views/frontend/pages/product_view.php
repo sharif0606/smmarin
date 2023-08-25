@@ -113,29 +113,23 @@
                 <section class="products_section">
                     <div class="products_slider display_as_grid">
                         <div class="st_posts product_list row grid">
-                        
-                            
-
-                <div class="row">
-                    <?php foreach($categories as $hppr){?>
-                        
-                        <div class="col-md-4">
-                            <a href="<?php echo base_url();?>all-products/<?= $hppr->category_name ?>/<?= $hppr->category_id ?>">
-                                <div class="item">
-                                    <div class="cont-box">
-                                        <img src="<?php echo base_url().$hppr->category_image;?>" style="width:100%; height:250px !important" />
-                                        <h2 class="caption"><?php echo $hppr->category_name;?></h2>
+                            <div class="row">
+                                <?php foreach($categories as $hppr){?>
+                                    <div class="col-md-4">
+                                        <a href="<?php echo base_url();?>all-products/<?= $hppr->category_name ?>/<?= $hppr->category_id ?>">
+                                            <div class="item">
+                                                <div class="cont-box">
+                                                    <img src="<?php echo base_url().$hppr->category_image;?>" style="width:100%; height:250px !important" />
+                                                    <h2 class="caption"><?php echo $hppr->category_name;?></h2>
+                                                </div>
+                                            </div>
+                                        </a>
                                     </div>
-                                </div>
-                            </a>
-                        </div>
-    				<?php }?>
-            
-                </div>
+                                <?php }?>
+                            </div>
                         </div>
                     </div>
                 </section>
-                
             </div>
         </div>
     </div>

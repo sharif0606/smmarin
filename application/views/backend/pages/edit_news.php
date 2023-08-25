@@ -103,12 +103,12 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="pro-name">
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <?php foreach($product_image_by_id as $image){ ?>
+                                    <?php foreach($product_image_by_id as $image){ if($image->product_images != ""){ ?>
                                         <div class="form-group text-center" style="display:inline-block;">
                                             <img src="<?php echo base_url().$image->product_images?>" width="70" height="40"><br>
-                                            <a class="text-danger delete-image" href="#" data-id= "<?= $image->id ?>">remove</a>
+                                            <a class="text-danger delete-image" href="" data-id= "<?= $image->id ?>">remove</a>
                                         </div>
-                                    <?php } ?>
+                                    <?php }} ?>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -193,10 +193,12 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 $(document).ready(function() {
-    $(".delete-image").on("click", function() {
+    $(".delete-image").on("click", function(e) {
+        e.preventDefault();
         var imageId = $(this).data("id");
-        var imageUrl = $(this).prev("img").attr("src");
         var imageSection = $(this).closest(".form-group");
+        var imageUrl = imageSection.find("img").attr("src");
+        // console.log(imageUrl);
 
         $.ajax({
             url: "<?php echo base_url('news/delete_image'); ?>",
