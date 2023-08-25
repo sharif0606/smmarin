@@ -3,7 +3,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <a href="<?php echo base_url();?>add-blog" class="btn btn-primary">
+                <a href="<?php echo base_url();?>add-news" class="btn btn-primary">
                 <i class="fa fa-plus" aria-hidden="true"></i> Create New Product </a> 
             </div>
             <div class="title_right">

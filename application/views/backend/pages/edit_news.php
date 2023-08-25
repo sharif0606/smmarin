@@ -93,8 +93,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="price"> Multiple Image <span class="">*</span>
-                                </label>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="price"> Multiple Image</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input style="padding:0;margin-bottom:10px;" type="file" name="news_images[]" multiple class="form-control col-md-7 col-xs-12" />
                                 </div>
