@@ -18,13 +18,19 @@
                     <div class="row pt-3">
                         <div class="col-md-5">
                             <div class="product-slider-single normal-slider">
-                                <?php foreach($full_news_view as $v_news){ ?>
+                                <?php foreach($full_news_view as $v_news){ if($v_news->product_images != ""){ ?>
                                     <img src="<?= base_url().$v_news->product_images;?>" alt="Product Image">
+                                <?php }} ?>
+                                <?php  if (!empty($full_news_view)) {?>
+                                    <img src="<?= base_url().$full_news_view[0]->news_image;?>" alt="Product Image">
                                 <?php } ?>
                             </div>
                             <div class="product-slider-single-nav normal-slider">
-                                <?php foreach($full_news_view as $v_news){ ?>
+                                <?php foreach($full_news_view as $v_news){ if($v_news->product_images != ""){?>
                                     <div class="slider-nav-img"><img src="<?= base_url().$v_news->product_images;?>" width="100px" alt="Product Image" style="height: 100px !important; "></div>
+                                <?php }} ?>
+                                <?php  if (!empty($full_news_view)) {?>
+                                    <div class="slider-nav-img"><img src="<?= base_url().$full_news_view[0]->news_image;?>" width="100px" alt="Product Image" style="height: 100px !important; "></div>
                                 <?php } ?>
                             </div>
                         </div>
