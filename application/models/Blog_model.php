@@ -135,8 +135,10 @@ class Blog_model extends CI_Model {
         $this->db->where_in('tbl_category.category_type',array(1,2));
         
         if($this->input->get('search_keyword')){
+            $this->db->group_start();
             $this->db->like('news_id', $this->input->get('search_keyword'));
             $this->db->or_like('news_name', $this->input->get('search_keyword'));
+            $this->db->group_end();
         }
 
         $this->db->order_by('news_id','desc');

@@ -53,37 +53,35 @@
 
                         <tbody>
                             
-                         <?php if (isset($results)) { ?>
-                    <?php foreach ($results as $data) { ?>
-                        <tr>
-                            <td><?php echo $data->news_id; ?></td>
-                            <td><?php echo $data->news_name; ?></td>
-                            <td><img src="<?php echo base_url().$data->news_image;?>" width="70" height="40"></td>
-                            <td><?php echo $data->category_name;?></td>
-                            <td class="a-right a-right">
-                                <?php $status = $data->news_status;
-                                    if ($status == 1) { ?>
-                                        <a class="btn btn-success btn-xs">Active</a>
-                                        <?php } else {
-                                            ?>
-                                        <a class="btn btn-warning btn-xs">Inactive</a>
-                                <?php }?>
-                            </td>
-                            <td class=" last">
-                            <a href="<?php echo base_url();?>edit-blog/<?php echo $data->news_id;?>" class="btn btn-info btn-xs"> <i class="glyphicon glyphicon-pencil"></i> Edit</a>
-                            <a href="<?php echo base_url();?>delete-blog/<?php echo $data->news_id;?>" class="btn btn-danger btn-xs"> <i class="glyphicon glyphicon-remove"></i> Delete</a>
-                            </td>
-                        </tr>
-                    <?php } ?>
-                
-            <?php } else { ?>
-                <div>No data found.</div>
-            <?php } ?>
- 
-            <?php if (isset($links)) { ?>
-                <?php echo $links ?>
-                
-            <?php } ?>
+                         <?php if ($results) { ?>
+                            <?php foreach ($results as $data) { ?>
+                                <tr>
+                                    <td><?php echo $data->news_id; ?></td>
+                                    <td><?php echo $data->news_name; ?></td>
+                                    <td><img src="<?php echo base_url().$data->news_image;?>" width="70" height="40"></td>
+                                    <td><?php echo $data->category_name;?></td>
+                                    <td class="a-right a-right">
+                                        <?php $status = $data->news_status;
+                                            if ($status == 1) { ?>
+                                                <a class="btn btn-success btn-xs">Active</a>
+                                            <?php } else { ?>
+                                                <a class="btn btn-warning btn-xs">Inactive</a>
+                                        <?php }?>
+                                    </td>
+                                    <td class=" last">
+                                    <a href="<?php echo base_url();?>edit-blog/<?php echo $data->news_id;?>" class="btn btn-info btn-xs"> <i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                                    <a href="<?php echo base_url();?>delete-blog/<?php echo $data->news_id;?>" class="btn btn-danger btn-xs"> <i class="glyphicon glyphicon-remove"></i> Delete</a>
+                                    </td>
+                                </tr>
+                            <?php } ?>
+                        <?php } else { ?>
+                            <div class="text-center">No data found.</div>
+                        <?php } ?>
+            
+                        <?php if (isset($links)) { ?>
+                            <?php echo $links ?>
+                            
+                        <?php } ?>
                         </tbody>
                       </table>
                     </div>

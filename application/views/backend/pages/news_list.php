@@ -58,7 +58,7 @@
 
                         <tbody>
                             
-                         <?php if (isset($results)) { ?>
+                         <?php if ($results) { ?>
                 <?php $cond=array(0=>"",1=>"Refurbished",2=>"New product") ?>
                     <?php foreach ($results as $data) { ?>
                         <tr>
@@ -90,7 +90,7 @@
                     <?php } ?>
                 
             <?php } else { ?>
-                <div>No data found.</div>
+                <div class="text-center">No data found.</div>
             <?php } ?>
  
             <?php if (isset($links)) { ?>

@@ -22,9 +22,11 @@ class All_news_model extends CI_Model {
         $this->db->join('tbl_category', 'tbl_category.category_id=tbl_news.fk_news_id', 'inner');
         $this->db->join('tbl_sub_category', 'tbl_sub_category.sub_category_id=tbl_news.sub_category_id', 'left');
         $this->db->where('tbl_category.category_type',3);
-        if($this->input->get('search_keyword')){
-            $this->db->like('news_id', $this->input->get('search_keyword'));
-            $this->db->or_like('news_name', $this->input->get('search_keyword'));
+        if(trim($this->input->get('search_keyword'))){
+            $this->db->group_start();
+            $this->db->like('news_id', trim($this->input->get('search_keyword')));
+            $this->db->or_like('news_name', trim($this->input->get('search_keyword')));
+            $this->db->group_end();
         }
 
         $this->db->order_by('news_id','desc');
