@@ -95,9 +95,7 @@
                     <section id="content" class="page-blog-article">
                         <div id="blog_primary_block" class="blog_detail_15" itemscope="" itemtype="http://schema.org/NewsArticle">
                             <meta itemscope="" itemprop="mainEntityOfPage" itemtype="https://schema.org/WebPage" itemid="https://google.com/article">
-                            <div class="blog-post-pdf" style="display: inline-block !important;">
-                                <h1 class="page_heading blog_heading" itemprop="headline"><?= $blog->news_name ?></h1>
-                            </div>
+                            <h1 class="page_heading blog_heading" itemprop="headline"><?= $blog->news_name ?></h1>
                             <div class="blog_info m-b-1">
                                 <span class="posted_on">Posted on</span><span class="date-add"><?= $blog->post_date ?></span><meta itemprop="datePublished" content="24/04/2019"><meta itemprop="dateModified" content="24/04/2019">
                             </div>
