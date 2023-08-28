@@ -98,11 +98,6 @@
                             <div class="blog-post-pdf" style="display: inline-block !important;">
                                 <h1 class="page_heading blog_heading" itemprop="headline"><?= $blog->news_name ?></h1>
                             </div>
-                            <div class="blog-post-pdf float-right">
-                                <?php if($blog->pdf != null){ ?>
-                                    <a  href="<?= base_url($blog->pdf) ?>" target="_blank"><i class="fa fa-file-pdf-o" aria-hidden="true" style="font-size: 32px; color:red;"></i></a>
-                                <?php }?>
-                            </div>
                             <div class="blog_info m-b-1">
                                 <span class="posted_on">Posted on</span><span class="date-add"><?= $blog->post_date ?></span><meta itemprop="datePublished" content="24/04/2019"><meta itemprop="dateModified" content="24/04/2019">
                             </div>
@@ -129,6 +124,9 @@
                             </div>
                             <div class="blog_content style_content m-b-1 mt-4">
                                 <p><?= $blog->news_description ?></p>
+                                <?php if($blog->pdf != null){ ?>
+                                    <a  href="<?= base_url($blog->pdf) ?>" target="_blank"><i class="fa fa-file-pdf-o" aria-hidden="true" style="font-size: 62px; color:red;"></i></a>
+                                <?php }?>
                             </div>
                         </div>
                     </section>
