@@ -23,7 +23,7 @@ class Blog_model extends CI_Model {
         $error="";
         
         $config['upload_path']='uploads/PostImages/';
-        $config['allowed_types']='gif|jpg|jpeg|png';
+        $config['allowed_types']='gif|jpg|jpeg|png|pdf';
         $config['max_size']=200000;
         $config['max_width']=200000;
         $config['max_height']=200000;
@@ -36,6 +36,14 @@ class Blog_model extends CI_Model {
         }else{
             $sdata=$this->upload->data();
             $data['news_image']=$config['upload_path'].$sdata['file_name'];
+        }
+
+        if(!$this->upload->do_upload('pdf')){
+            $error=$this->upload->display_errors();
+            echo $error;
+        }else{
+            $sdata=$this->upload->data();
+            $data['pdf']=$config['upload_path'].$sdata['file_name'];
         }
         $this->db->insert('tbl_news', $data);
     }
@@ -104,20 +112,27 @@ class Blog_model extends CI_Model {
         $error="";
         
         $config['upload_path']='uploads/PostImages/';
-        $config['allowed_types']='gif|jpg|jpeg|png';
+        $config['allowed_types']='gif|jpg|jpeg|png|pdf';
         $config['max_size']=200000;
         $config['max_width']=200000;
         $config['max_height']=200000;
         
         $this->load->library('upload',$config);
 		
-        if(!$this->upload->do_upload('news_image'))
-        {
+        if(!$this->upload->do_upload('news_image')){
             $error=$this->upload->display_errors();
             //echo $error;
         }else{
             $sdata=$this->upload->data();
             $data['news_image']=$config['upload_path'].$sdata['file_name'];
+        }
+
+        if(!$this->upload->do_upload('pdf')){
+            $error=$this->upload->display_errors();
+            echo $error;
+        }else{
+            $sdata=$this->upload->data();
+            $data['pdf']=$config['upload_path'].$sdata['file_name'];
         }
         
         
