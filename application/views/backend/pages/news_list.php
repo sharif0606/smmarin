@@ -90,7 +90,7 @@
                     <?php } ?>
                 
             <?php } else { ?>
-                <div>No user(s) found.</div>
+                <div>No data found.</div>
             <?php } ?>
  
             <?php if (isset($links)) { ?>

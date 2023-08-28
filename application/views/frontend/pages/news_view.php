@@ -35,6 +35,7 @@
                             </div>
                         </div>
                         <div class="col-md-7">
+                            <?php $cond=array(0=>"",1=>"Refurbished",2=>"New product") ?>
                             <?php  if (!empty($full_news_view)) {?>
                             <div class="product-content py-0 pl-1">
                                 <div class="title"><h1><?= $full_news_view[0]->news_name;?></h1></div>
@@ -48,7 +49,7 @@
                                 </div>
                                 <div class="price">
                                     <h4>Condition:</h4>
-                                    <p><?= $full_news_view[0]->condition_p;?></p>
+                                    <p><?= $cond[$full_news_view[0]->condition_p];?></p>
                                 </div>
                                 <div><hr></div>
                                 <p><?= $full_news_view[0]->news_description;?></p>
